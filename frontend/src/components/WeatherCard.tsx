@@ -9,6 +9,7 @@ import {
   Wind,
   Umbrella,
 } from "lucide-react";
+import Card from "./ui/Card";
 
 const forecast = [
   {
@@ -40,7 +41,11 @@ const forecast = [
 
 function WeatherCard() {
   return (
-    <section className="rounded-[26px] bg-[#EAEBD6] p-5 text-[#263638] shadow-lg">
+    <Card
+        variant="glass"
+        padding="none"
+        className="rounded-[26px] bg-[#EAEBD6] p-5 text-[#263638] shadow-lg"
+      >
 
       {/* Header */}
 
@@ -225,7 +230,7 @@ function WeatherCard() {
         Illustrative weather information, not a live forecast.
       </p>
 
-    </section>
+    </Card>
   );
 }
 

@@ -11,6 +11,8 @@ import {
   Wallet,
   X,
 } from "lucide-react";
+import Button from "../components/ui/Button";
+import Card from "../components/ui/Card";
 
 
 const COMPARE_STORAGE_KEY = "tripsync-compare-destinations";
@@ -141,7 +143,7 @@ function CompareDestinations() {
 
             return (
 
-              <button
+              <Button
                 key={destination.id}
                 type="button"
                 aria-pressed={isSelected}
@@ -210,7 +212,7 @@ function CompareDestinations() {
 
                 </div>
 
-              </button>
+              </Button>
 
             );
           })}
@@ -364,6 +366,11 @@ function CompareDestinations() {
         ) : (
 
           <div className="overflow-x-auto">
+            <Card
+                variant="glass"
+                padding="none"
+                className="overflow-hidden"
+              >
 
             <table className="w-full min-w-[650px] border-collapse text-left">
 
@@ -416,14 +423,17 @@ function CompareDestinations() {
 
                       {/* Remove Destination */}
 
-                      <button
-                        type="button"
-                        aria-label={`Remove ${destination.name}`}
-                        onClick={() => toggleDestination(destination.id)}
-                        className="ml-auto rounded-full p-1.5 text-white/40 transition hover:bg-red-400/10 hover:text-red-400"
-                      >
-                        <X size={15} />
-                      </button>
+                      {/* Remove Destination */}
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          aria-label={`Remove ${destination.name}`}
+                          onClick={() => toggleDestination(destination.id)}
+                          className="ml-auto rounded-full p-1.5 text-white/40 transition hover:bg-red-400/10 hover:text-red-400"
+                        >
+                          <X size={15} />
+                        </Button>
 
                     </div>
 
@@ -641,6 +651,7 @@ function CompareDestinations() {
               </tbody>
 
             </table>
+            </Card>
 
           </div>
 

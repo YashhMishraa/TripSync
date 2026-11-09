@@ -8,6 +8,7 @@ import {
   type Destination,
 } from "../data/destinations";
 import Button from "../components/ui/Button";
+import Card from "../components/ui/Card";
 
 
 import {
@@ -619,7 +620,11 @@ if (availableDestinations.length === 0) {
 
           {generatedPlan && (
 
-            <div className="rounded-[26px] border border-orange-400/30 bg-white/10 p-6 backdrop-blur-xl">
+            <Card
+              variant="glass"
+              padding="md"
+              className="h-full rounded-[26px] border-orange-400/30"
+            >
               {/* Destination Cover Image */}
 
                   <div className="relative mb-5 h-44 overflow-hidden rounded-2xl">
@@ -839,7 +844,7 @@ if (availableDestinations.length === 0) {
                   View My Trips →
                 </Link>
               )}
-            </div>
+            </Card>
 
           )}
 

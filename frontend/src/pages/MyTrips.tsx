@@ -5,6 +5,8 @@ import {
   saveTrips,
 } from "../utils/tripStorage";
 import PageHeader from "../components/PageHeader";
+import Button from "../components/ui/Button";
+import Card from "../components/ui/Card";
 
 import {
   CalendarDays,
@@ -585,9 +587,11 @@ const confirmRemoveSavedTrip = () => {
 
             return (
 
-              <article
+              <Card
                 key={trip.id}
-                className="overflow-hidden rounded-2xl border border-white/15 bg-white/10 transition hover:border-white/30"
+                variant="glass"
+                padding="none"
+                className="overflow-hidden transition hover:border-white/30"
               >
 
                 {/* Destination Image */}
@@ -741,11 +745,11 @@ const confirmRemoveSavedTrip = () => {
 
                       </div>
 
-                    <button
+                    <Button
                       type="button"
-                      onClick={() =>
-                        setExpandedTrip(isExpanded ? null : trip.id)
-                      }
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => setExpandedTrip(isExpanded ? null : trip.id)}
                       aria-expanded={isExpanded}
                       className="flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-xs text-white transition hover:border-orange-400 hover:text-orange-300"
                     >
@@ -755,7 +759,7 @@ const confirmRemoveSavedTrip = () => {
                         size={15}
                         className={`transition ${isExpanded ? "rotate-180" : ""}`}
                       />
-                    </button>
+                    </Button>
 
                   </div>
 
@@ -855,31 +859,31 @@ const confirmRemoveSavedTrip = () => {
 
                     {trip.status === "Upcoming" && (
 
-                      <button
+                      <Button
                         type="button"
-                        onClick={() =>
-                          updateTripStatus(trip.id, "Completed")
-                        }
-                        className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-orange-500 px-4 py-3 text-xs font-semibold text-white transition hover:bg-orange-400"
+                        variant="primary"
+                        size="md"
+                        onClick={() => updateTripStatus(trip.id, "Completed")}
+                        className="flex flex-1 items-center justify-center gap-2"
                       >
                         <CheckCircle2 size={15} />
                         Mark as Completed
-                      </button>
+                      </Button>
 
                     )}
 
                     {trip.status === "Saved" && (
 
-                      <button
+                      <Button
                         type="button"
-                        onClick={() =>
-                          updateTripStatus(trip.id, "Upcoming")
-                        }
-                        className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-orange-500 px-4 py-3 text-xs font-semibold text-white transition hover:bg-orange-400"
+                        variant="primary"
+                        size="md"
+                        onClick={() => updateTripStatus(trip.id, "Upcoming")}
+                        className="flex flex-1 items-center justify-center gap-2"
                       >
                         <Plane size={15} />
                         Move to Upcoming
-                      </button>
+                      </Button>
 
                     )}
 
@@ -894,13 +898,14 @@ const confirmRemoveSavedTrip = () => {
 
                     {trip.status === "Saved" && (
 
-                      <button
-                        type="button"
-                        onClick={() => removeSavedTrip(trip.id)}
-                        className="rounded-xl border border-red-400/30 px-4 py-3 text-xs text-red-300 transition hover:bg-red-400/10"
-                      >
-                        Remove
-                      </button>
+                      <Button
+                      type="button"
+                      variant="danger"
+                      size="md"
+                      onClick={() => removeSavedTrip(trip.id)}
+                    >
+                      Remove
+                    </Button>
 
                     )}
 
@@ -911,22 +916,23 @@ const confirmRemoveSavedTrip = () => {
                     >
                       <ArrowUpRight size={16} />
                     </button>
-                    <button
+                    <Button
                       type="button"
+                      variant="secondary"
+                      size="md"
                       onClick={() => {
                         setEditingTrip({ ...trip });
                         setEditError("");
                       }}
-                      className="rounded-xl border border-white/20 px-4 py-3 text-xs text-white/80 transition hover:border-orange-400 hover:text-orange-300"
                     >
                       Edit Trip
-                    </button>
+                    </Button>
 
                   </div>
 
                 </div>
 
-              </article>
+              </Card>
 
             );
           })}
@@ -987,8 +993,10 @@ const confirmRemoveSavedTrip = () => {
             </p>
           </div>
 
-          <button
+          <Button
             type="button"
+            variant="secondary"
+            size="sm"
             aria-label="Close edit form"
             onClick={() => {
               setEditingTrip(null);
@@ -997,7 +1005,7 @@ const confirmRemoveSavedTrip = () => {
             className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20"
           >
             <X size={19} />
-          </button>
+          </Button>
 
         </div>
 
@@ -1219,13 +1227,15 @@ const confirmRemoveSavedTrip = () => {
 
         {/* Cancel */}
 
-        <button
+        <Button
           type="button"
+          variant="danger"
+          size="sm"
           onClick={() => setTripToDelete(null)}
           className="flex-1 rounded-xl border border-white/20 py-3 text-sm text-white/70 hover:bg-white/10"
         >
           Cancel
-        </button>
+        </Button>
 
         {/* Confirm Delete */}
 
