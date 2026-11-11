@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import Card from "./ui/Card";
 
 import { destinations } from "../data/destinations";
 import { useFavorites } from "../hooks/useFavorites";
@@ -67,7 +68,11 @@ function FeaturedDestination() {
 
   return (
 
-    <article className="group relative min-h-[480px] overflow-hidden rounded-[28px] border border-white/20 bg-slate-800 text-white shadow-xl">
+    <Card
+        variant="glass"
+        padding="none"
+        className="relative overflow-hidden"
+      >
 
       {/* Destination Image */}
 
@@ -221,7 +226,7 @@ function FeaturedDestination() {
 
       </div>
 
-    </article>
+    </Card>
   );
 }
 

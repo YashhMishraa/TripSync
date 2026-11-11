@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import { destinations } from "../data/destinations";
+import Card from "./ui/Card";
 
 // Destinations displayed on the dashboard map
 
@@ -54,7 +55,11 @@ function DestinationMap() {
   if (!selectedDestination) return null;
 
   return (
-    <section className="rounded-[26px] border border-white/20 bg-white/10 p-5 text-white shadow-lg backdrop-blur-xl">
+    <Card
+        variant="glass"
+        padding="md"
+        className="h-full"
+      >
 
       {/* Header */}
 
@@ -318,7 +323,7 @@ function DestinationMap() {
         and are not geographically accurate.
       </p>
 
-    </section>
+    </Card>
   );
 }
 

@@ -4,10 +4,15 @@ import {
   Clock,
   ArrowRight,
 } from "lucide-react";
+import Card from "./ui/Card";
 
 function FlightCard() {
   return (
-    <section className="rounded-[26px] bg-[#F0DDE2] p-5 text-[#30252A] shadow-lg">
+    <Card
+        variant="glass"
+        padding="none"
+        className="rounded-[26px] bg-[#F0DDE2] p-5 text-[#30252A] shadow-lg"
+      >
 
       {/* Header */}
 
@@ -103,7 +108,7 @@ function FlightCard() {
         Illustrative itinerary · Not a live flight booking
       </p>
 
-    </section>
+    </Card>
   );
 }
 

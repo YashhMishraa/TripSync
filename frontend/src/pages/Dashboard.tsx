@@ -7,11 +7,11 @@ import TravelAnalytics from "../components/TravelAnalytics";
 
 function Dashboard() {
   return (
-    <section className="grid min-w-0 grid-cols-1 gap-5 p-4 md:p-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)]">
+    <section className="grid min-w-0 grid-cols-1 gap-6 p-4 md:gap-7 md:p-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)]">
 
       {/* Left Column */}
 
-      <div className="flex min-w-0 flex-col gap-6">
+      <div className="flex min-w-0 flex-col gap-7">
 
         <FeaturedDestination />
 
@@ -21,7 +21,7 @@ function Dashboard() {
 
       {/* Right Column */}
 
-      <div className="flex min-w-0 flex-col gap-5">
+      <div className="flex min-w-0 flex-col gap-6">
 
         {/* Weather and Flight */}
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MoreHorizontal, Plane, Target } from "lucide-react";
+import Card from "./ui/Card";
 
 const statistics = [
   {
@@ -23,7 +24,11 @@ function TravelAnalytics() {
   const [travelProgress, setTravelProgress] = useState(72);
 
   return (
-    <section className="rounded-[26px] border border-white/20 bg-white/10 p-5 text-white shadow-lg backdrop-blur-xl">
+    <Card
+        variant="glass"
+        padding="md"
+        className="h-full"
+      >
 
       {/* Header */}
 
@@ -157,7 +162,7 @@ function TravelAnalytics() {
 
       </div>
 
-    </section>
+    </Card>
   );
 }
 

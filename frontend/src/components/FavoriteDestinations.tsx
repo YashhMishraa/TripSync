@@ -6,9 +6,10 @@ import {
 } from "lucide-react";
 
 import { Link } from "react-router";
-
+import Card from "./ui/Card";
 import { destinations } from "../data/destinations";
 import { useFavorites } from "../hooks/useFavorites";
+import SectionHeading from "./SectionHeading";
 
 // Destinations displayed in the dashboard
 
@@ -37,26 +38,18 @@ function FavoriteDestinations() {
 
       {/* Section Header */}
 
-      <div className="mb-5 flex items-center justify-between">
-
-        <div>
-          <h2 className="text-xl font-bold">
-            Favorite Destinations
-          </h2>
-
-          <p className="mt-1 text-sm text-white/60">
-            Discover places worth exploring
-          </p>
-        </div>
-
-        <Link
-          to="/explore"
-          className="rounded-full border border-white/30 px-4 py-2 text-sm transition hover:bg-white/10"
-        >
-          Explore all →
-        </Link>
-
-      </div>
+          <SectionHeading
+            title="Favorite Destinations"
+            subtitle="Discover places worth exploring"
+            action={
+              <Link
+                to="/explore"
+                className="rounded-full border border-white/30 px-4 py-2 text-sm transition hover:bg-white/10"
+              >
+                Explore all →
+              </Link>
+            }
+          />
 
       {/* Destination Cards */}
 
@@ -70,9 +63,10 @@ function FavoriteDestinations() {
 
           return (
 
-            <article
-              key={destination.favoriteId}
-              className="group overflow-hidden rounded-2xl border border-white/15 bg-white/10 transition duration-300 hover:-translate-y-1 hover:bg-white/15"
+            <Card
+              variant="glass"
+              padding="none"
+              className="group overflow-hidden transition duration-300 hover:-translate-y-1"
             >
 
               {/* Image */}
@@ -191,7 +185,7 @@ function FavoriteDestinations() {
 
               </div>
 
-            </article>
+            </Card>
 
           );
         })}
