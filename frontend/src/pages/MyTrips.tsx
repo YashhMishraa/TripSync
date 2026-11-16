@@ -15,7 +15,6 @@ import {
   Wallet,
   Clock,
   Search,
-  ArrowUpRight,
   CheckCircle2,
   Bookmark,
   Plane,
@@ -909,13 +908,6 @@ const confirmRemoveSavedTrip = () => {
 
                     )}
 
-                    <button
-                      type="button"
-                      aria-label={`View details for ${trip.name}`}
-                      className="rounded-xl border border-white/20 px-4 py-3 text-white/70 transition hover:bg-white/10"
-                    >
-                      <ArrowUpRight size={16} />
-                    </button>
                     <Button
                       type="button"
                       variant="secondary"
@@ -969,10 +961,9 @@ const confirmRemoveSavedTrip = () => {
       )}
 
       <p className="mt-6 text-xs text-white/40">
-        All trips are illustrative demo data. Changes made here are
-        stored only in the current frontend session and are not saved
-        permanently.
-      </p>
+          Your trip changes are saved locally in this browser.
+          They are not synchronized with an account or server.
+        </p>
 
       {/* Edit Trip Modal */}
 

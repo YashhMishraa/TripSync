@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MoreHorizontal, Plane, Target } from "lucide-react";
 import Card from "./ui/Card";
+import SectionHeading from "./SectionHeading";
 
 const statistics = [
   {
@@ -32,35 +33,30 @@ function TravelAnalytics() {
 
       {/* Header */}
 
-      <div className="mb-6 flex items-center justify-between">
+        <div className="mb-6 flex items-center justify-between">
 
-        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
 
-          <div className="rounded-full bg-orange-500/20 p-3 text-orange-400">
-            <Plane size={20} />
+            <div className="rounded-full bg-orange-500/20 p-3 text-orange-400">
+              <Plane size={20} />
+            </div>
+
+            <SectionHeading
+              title="Travel Analytics"
+              subtitle="Your travel statistics"
+            />
+
           </div>
 
-          <div>
-            <h2 className="text-lg font-semibold">
-              Travel Analytics
-            </h2>
-
-            <p className="text-xs text-white/50">
-              Your travel statistics
-            </p>
-          </div>
+          <button
+            type="button"
+            aria-label="More analytics options"
+            className="rounded-full p-2 transition hover:bg-white/10"
+          >
+            <MoreHorizontal size={22} />
+          </button>
 
         </div>
-
-        <button
-          type="button"
-          aria-label="More analytics options"
-          className="rounded-full p-2 transition hover:bg-white/10"
-        >
-          <MoreHorizontal size={22} />
-        </button>
-
-      </div>
 
       {/* Circular Statistics */}
 

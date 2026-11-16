@@ -25,7 +25,7 @@ function Dashboard() {
 
         {/* Weather and Flight */}
 
-        <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 [&>*]:min-w-0">
+        <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:gap-5 [&>*]:min-w-0">
 
           <WeatherCard />
 

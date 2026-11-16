@@ -520,13 +520,17 @@ const openComparison = () => {
                         
                       <div className="mt-auto grid grid-cols-2 gap-2 pt-5">
 
-                        {/* View Details Button */}
+                        {/* Destination Actions */}
 
-                        <div className="mt-auto grid grid-cols-2 gap-2 pt-5">
+                          <div className="mt-auto grid grid-cols-2 gap-2 pt-5">
 
-                            <Button variant="primary" size="sm">
-                                View Details
-                              </Button>
+                            <Button
+                              variant="primary"
+                              size="sm"
+                              onClick={() => setSelectedDestination(destination)}
+                            >
+                              View Details
+                            </Button>
 
                             <button
                               type="button"
@@ -545,12 +549,6 @@ const openComparison = () => {
                             </button>
 
                           </div>
-
-                        {/* Compare Button */}
-
-                        <Button variant="secondary" size="sm">
-                            Compare
-                          </Button>
 
                       </div>
                       </div>

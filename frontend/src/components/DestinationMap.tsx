@@ -10,6 +10,7 @@ import {
 
 import { destinations } from "../data/destinations";
 import Card from "./ui/Card";
+import SectionHeading from "./SectionHeading";
 
 // Destinations displayed on the dashboard map
 
@@ -63,35 +64,30 @@ function DestinationMap() {
 
       {/* Header */}
 
-      <div className="mb-5 flex items-center justify-between">
+        <div className="mb-5 flex items-center justify-between">
 
-        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
 
-          <div className="rounded-full bg-[#172C2C] p-3 text-orange-400">
-            <MapPin size={19} />
+            <div className="rounded-full bg-[#172C2C] p-3 text-orange-400">
+              <MapPin size={19} />
+            </div>
+
+            <SectionHeading
+              title="Destinations"
+              subtitle="Explore popular travel locations"
+            />
+
           </div>
 
-          <div>
-            <h2 className="text-lg font-semibold">
-              Destinations
-            </h2>
-
-            <p className="text-xs text-white/50">
-              Explore popular travel locations
-            </p>
-          </div>
+          <button
+            type="button"
+            aria-label="More map options"
+            className="rounded-full p-2 transition hover:bg-white/10"
+          >
+            <MoreHorizontal size={22} />
+          </button>
 
         </div>
-
-        <button
-          type="button"
-          aria-label="More map options"
-          className="rounded-full p-2 transition hover:bg-white/10"
-        >
-          <MoreHorizontal size={22} />
-        </button>
-
-      </div>
 
       {/* Map Area */}
 

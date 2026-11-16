@@ -56,18 +56,26 @@ function CompareDestinations() {
     selectedIds.includes(destination.id)
   );
 
-  const lowestBudget = Math.min(
-    ...selectedDestinations.map((destination) => destination.budget)
-  );
+  const lowestBudget =
+      selectedDestinations.length > 0
+        ? Math.min(
+            ...selectedDestinations.map((destination) => destination.budget)
+          )
+        : 0;
 
-  const highestBudget = Math.max(
-    0,
-    ...selectedDestinations.map((destination) => destination.budget)
-  );
+    const highestBudget =
+      selectedDestinations.length > 0
+        ? Math.max(
+            ...selectedDestinations.map((destination) => destination.budget)
+          )
+        : 0;
 
-  const highestRating = Math.max(
-    ...selectedDestinations.map((destination) => destination.rating)
-  );
+    const highestRating =
+      selectedDestinations.length > 0
+        ? Math.max(
+            ...selectedDestinations.map((destination) => destination.rating)
+          )
+        : 0;
 
   const toggleDestination = (id: number) => {
     setLimitMessage("");

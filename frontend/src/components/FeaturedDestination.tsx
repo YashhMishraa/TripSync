@@ -11,6 +11,8 @@ import Card from "./ui/Card";
 
 import { destinations } from "../data/destinations";
 import { useFavorites } from "../hooks/useFavorites";
+import SectionHeading from "./SectionHeading";
+
 
 // Featured destinations for the dashboard carousel
 
@@ -129,10 +131,10 @@ function FeaturedDestination() {
 
           <div className="mb-3 flex flex-wrap items-center gap-3 text-sm">
 
-            <span className="flex items-center gap-2 text-orange-300">
-              <Star size={16} fill="currentColor" />
-              Featured Destination
-            </span>
+            <SectionHeading
+                title="Featured Destination"
+                subtitle="Discover your next unforgettable adventure"
+              />
 
             <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs text-white/80">
               {currentDestination.bestFor}

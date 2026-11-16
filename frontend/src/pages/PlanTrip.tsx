@@ -142,23 +142,48 @@ const [savedPlanKey, setSavedPlanKey] = useState("");
     let availableDestinations = destinations;
 
     if (destinationType !== "Any") {
-  availableDestinations = destinations.filter(
-    (destination: Destination) =>
-      destination.category === destinationType
-  );
-}
+      availableDestinations = destinations.filter(
+        (destination: Destination) =>
+          destination.category === destinationType
+      );
+    }
 
-if (availableDestinations.length === 0) {
-  availableDestinations = destinations;
-}
+    if (availableDestinations.length === 0) {
+      availableDestinations = destinations;
+    }
+
+    if (activities.length > 0) {
+      const activityMatches = availableDestinations.filter(
+        (destination) =>
+          activities.some((activity) =>
+            destination.activities.some((destinationActivity) =>
+              destinationActivity
+                .toLowerCase()
+                .includes(activity.toLowerCase()) ||
+              activity.toLowerCase()
+                .includes(destinationActivity.toLowerCase())
+            )
+          )
+      );
+
+      if (activityMatches.length > 0) {
+        availableDestinations = activityMatches;
+      }
+    }
 
     const affordableDestinations = availableDestinations.filter(
       (destination) =>
         destination.budget * travelerCount <= totalBudget
     );
 
-    const destination =
-      affordableDestinations[0] ?? availableDestinations[0];
+    if (affordableDestinations.length === 0) {
+      setError(
+        "No destinations match your budget. Please increase your budget or reduce the number of travellers."
+      );
+      return;
+    }
+
+    const destination = affordableDestinations[0];
 
     const estimatedBudget = destination.budget * travelerCount;
 
@@ -790,13 +815,15 @@ if (availableDestinations.length === 0) {
                     </div>
 
                     <p className="pt-1 text-xs leading-5 text-white/70">
-                      {item.replace(
-                        itineraryActivities[index % itineraryActivities.length],
-                        generatedPlan.destination.activities[
-                          index % generatedPlan.destination.activities.length
-                        ]
-                      )}
-                    </p>
+                        {item.replace(
+                          itineraryActivities[index % itineraryActivities.length],
+                          generatedPlan.destination.activities.length > 0
+                            ? generatedPlan.destination.activities[
+                                index % generatedPlan.destination.activities.length
+                              ]
+                            : "Explore local attractions and experiences"
+                        )}
+                      </p>
 
                   </div>
 
